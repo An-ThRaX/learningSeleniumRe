@@ -15,13 +15,13 @@ class FindPrices:
           "//table[@id='product']//td[text()='Python Programming Language']//following-sibling::td")
 
         if find_the_required_price.text == '30':
-            print("all clear")
+            print("first clear")
 
 
 run_tests = FindPrices()
 run_tests.test()
 
-class FindAuthor:
+class FindAuthor():
     # find the author of the book "The Green Mile"
     def test(self):
         driver = webdriver.Chrome()
@@ -29,8 +29,15 @@ class FindAuthor:
         driver.implicitly_wait(10)
         driver.maximize_window()
 
-        find_author = driver.find_element(By.XPATH,
+        find_author = driver.find_elements(By.XPATH,
             "//div[@id='layout']//div[contains(text(), 'The Green Mile')]//following-sibling::div[1]")
+
+        if find_author is not None:
+            print('second clear')
+
+
+run_tests2 = FindAuthor()
+run_tests2.test()
 
 
 
